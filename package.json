@@ -31,10 +31,7 @@
     "Louis DeScioli <louis.descioli@gmail.com>"
   ],
   "dependencies": {
-    "exenv": "^1.2.1",
-    "preact": "^7.1.0",
-    "preact-compat": "^3.13.1",
-    "shallowequal": "^0.2.2"
+    "preact": "^7.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.22.2",
@@ -45,12 +42,9 @@
     "babel-register": "^6.22.0",
     "chai": "^3.2.0",
     "enzyme": "^2.7.1",
-    "isparta": "^4.0.0",
     "jsdom": "^9.10.0",
     "mocha": "^3.2.0",
-    "react": "^15.4.2",
-    "react-addons-test-utils": "^15.4.2",
-    "react-dom": "^15.4.2",
+    "preact-render-to-string": "^3.5.0",
     "rimraf": "^2.4.3"
   },
   "files": [
