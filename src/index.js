@@ -1,6 +1,7 @@
-import React from 'preact-compat';
-import ExecutionEnvironment from 'exenv';
-import shallowEqual from 'shallowequal';
+
+import { h, Component } from 'preact';
+
+/** @jsx h */
 
 module.exports = function withSideEffect(
   reducePropsToState,
@@ -41,12 +42,16 @@ module.exports = function withSideEffect(
       }
     }
 
-    class SideEffect extends React.Component {
+    class SideEffect extends Component {
       // Try to use displayName of wrapped component
       static displayName = `SideEffect(${getDisplayName(WrappedComponent)})`;
 
       // Expose canUseDOM so tests can monkeypatch it
-      static canUseDOM = ExecutionEnvironment.canUseDOM;
+      static canUseDOM = !!(
+        typeof window !== 'undefined' && 
+        window.document && 
+        window.document.createElement
+      );
 
       static peek() {
         return state;
@@ -64,7 +69,10 @@ module.exports = function withSideEffect(
       }
 
       shouldComponentUpdate(nextProps) {
-        return !shallowEqual(nextProps, this.props);
+        // preact-compat normally does this
+        let { children, ...props } = nextProps;
+        if (children && children.length) props.children = children;
+        return shallowDiffers(props, this.props);
       }
 
       componentWillMount() {
@@ -89,4 +97,11 @@ module.exports = function withSideEffect(
 
     return SideEffect;
   }
+
+  // Pulled from react-compat
+  function shallowDiffers (a, b) {
+    for (let i in a) if (!(i in b)) return true
+    for (let i in b) if (a[i] !== b[i]) return true
+    return false
+  }  
 }
