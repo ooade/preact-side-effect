@@ -30,8 +30,8 @@
   "contributors": [
     "Louis DeScioli <louis.descioli@gmail.com>"
   ],
-  "dependencies": {
-    "preact": "^7.1.0"
+  "peerDependencies": {
+    "preact": ">=7.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.22.2",
@@ -44,6 +44,7 @@
     "enzyme": "^2.7.1",
     "jsdom": "^9.10.0",
     "mocha": "^3.2.0",
+    "preact": "^7.1.0",
     "preact-render-to-string": "^3.5.0",
     "rimraf": "^2.4.3"
   },
