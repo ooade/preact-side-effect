@@ -31,7 +31,7 @@
     "Louis DeScioli <louis.descioli@gmail.com>"
   ],
   "peerDependencies": {
-    "preact": ">=7.1.0"
+    "preact": ">=8.2.*"
   },
   "devDependencies": {
     "babel-cli": "^6.22.2",
@@ -44,8 +44,8 @@
     "enzyme": "^2.7.1",
     "jsdom": "^9.10.0",
     "mocha": "^3.2.0",
-    "preact": "^7.1.0",
-    "preact-render-to-string": "^3.5.0",
+    "preact": "^8.2.1",
+    "preact-render-to-string": "^3.6.3",
     "rimraf": "^2.4.3"
   },
   "files": [
